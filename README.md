@@ -33,10 +33,10 @@ on "kernel.php", add this line on your "protected $middlewareGroups"
 change default laravel user field. at default the value is "id"
 
 ```php
-'user' => 'employee_id'
+'user' => 'id'
 ```
 
-change redirect url
+change redirect url to form change password
 
 ```php
 'redirect' => 'profile'
@@ -52,12 +52,13 @@ set password which not allowed
 ]
 ```
 
-set except routes
+set except routes. make sure your redirect url (for change password) is on this list
 ```php
 'except-routes' => [
     ...
     'login',
     'logout',
+    'profile',
     ...
 ]
 ```

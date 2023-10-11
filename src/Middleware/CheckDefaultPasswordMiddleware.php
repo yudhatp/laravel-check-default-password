@@ -1,6 +1,6 @@
 <?php
 
-namespace Yudhatp\CheckDefPass\Middleware;
+namespace Yudhatp\CheckDefaultPassword\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
@@ -35,7 +35,7 @@ class CheckDefaultPasswordMiddleware
         $tmp = DB::select("select password from users where ".$userID."='".$user->getOriginal($userID)."'");
         foreach ($pass as $p) {
             if (Hash::check($p, $tmp[0]->password)) {
-                return redirect()->url($redirect);
+                return redirect($redirect);
             }
         }
         return $next($request);
